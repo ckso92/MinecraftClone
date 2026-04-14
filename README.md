@@ -1,4 +1,5 @@
-# MinecraftCloneimport pygame
+# main.py
+import pygame
 import sys
 
 # Constants
@@ -21,8 +22,7 @@ pygame.display.set_caption("Minecraft-like Game")
 clock = pygame.time.Clock()
 
 # Player setup
-player_pos = [3, 3]  # Initial player position on the grid
-player_color = GREEN
+player_pos = [3, 3]
 
 # Grid setup
 grid = [[0 for _ in range(GRID_HEIGHT)] for _ in range(GRID_WIDTH)]
@@ -45,7 +45,7 @@ def draw_blocks():
 
 def draw_player():
     rect = pygame.Rect(player_pos[0] * BLOCK_SIZE, player_pos[1] * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
-    pygame.draw.rect(screen, player_color, rect)
+    pygame.draw.rect(screen, GREEN, rect)
 
 
 def main():
@@ -66,20 +66,20 @@ def main():
         keys = pygame.key.get_pressed()
 
         # Player movement
-        if keys[pygame.K_w] and player_pos[1] > 0:  # Up
+        if keys[pygame.K_w] and player_pos[1] > 0:
             player_pos[1] -= 1
-        if keys[pygame.K_s] and player_pos[1] < GRID_HEIGHT - 1:  # Down
+        if keys[pygame.K_s] and player_pos[1] < GRID_HEIGHT - 1:
             player_pos[1] += 1
-        if keys[pygame.K_a] and player_pos[0] > 0:  # Left
+        if keys[pygame.K_a] and player_pos[0] > 0:
             player_pos[0] -= 1
-        if keys[pygame.K_d] and player_pos[0] < GRID_WIDTH - 1:  # Right
+        if keys[pygame.K_d] and player_pos[0] < GRID_WIDTH - 1:
             player_pos[0] += 1
 
         # Place block
         if keys[pygame.K_SPACE]:
             grid[player_pos[0]][player_pos[1]] = 1
 
-        clock.tick(10)
+        clock.tick(60)  
 
     pygame.quit()
     sys.exit()
