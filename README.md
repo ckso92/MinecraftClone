@@ -3,9 +3,9 @@ import pygame
 import sys
 
 # Constants
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-BLOCK_SIZE = 40
+SCREEN_WIDTH = 900
+SCREEN_HEIGHT = 650
+BLOCK_SIZE = 50
 GRID_WIDTH = SCREEN_WIDTH // BLOCK_SIZE
 GRID_HEIGHT = SCREEN_HEIGHT // BLOCK_SIZE
 
@@ -79,7 +79,7 @@ def main():
         if keys[pygame.K_SPACE]:
             grid[player_pos[0]][player_pos[1]] = 1
 
-        clock.tick(60)  
+        clock.tick(65)  
 
     pygame.quit()
     sys.exit()
